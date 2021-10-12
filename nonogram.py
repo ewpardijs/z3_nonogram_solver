@@ -15,7 +15,7 @@ class Nonogram():
         self.s = Solver()
         self.set_variables()
         self.add_constraints()
-        if self.s.check():
+        if self.s.check() == sat:
             return (True, self.evaluate_grid())
         else:
             return (False, None)
