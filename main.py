@@ -1,6 +1,6 @@
 from z3 import *
 import pandas as pd
-from nonogram import Nonogram
+from nonogram import Nonogram, parse_nonogram
 import matplotlib.pyplot as plt
 from matplotlib.ticker import AutoMinorLocator, FuncFormatter, NullFormatter
 import argparse
@@ -40,7 +40,7 @@ def visualize_grid(df, cb, rb):
         print(df)
 
 if __name__ == '__main__':
-    nonogram = Nonogram(args.Path)
+    nonogram = parse_nonogram(args.Path)
     res = nonogram.solve()
     if res[0]:
         visualize_grid(res[1], nonogram.CB, nonogram.RB)
